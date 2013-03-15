@@ -1,5 +1,4 @@
 <?php
-
 require('_config.php');
 
 // Load settings from cookies

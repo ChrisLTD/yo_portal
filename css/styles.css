@@ -79,6 +79,9 @@ header, [role="main"], footer { text-align: center; padding: 0 8px; }
 
 [role="main"] { display: none; } /* Hide until ajax is done */
 
+/* HEADER
+================= */
+
 .logo { font-family: "chaloops-medium", serif; text-align: center; }
 
 .logo b { color: rgb(194,68,52); }
@@ -95,6 +98,9 @@ header, [role="main"], footer { text-align: center; padding: 0 8px; }
 	box-shadow: inset 1px 1px 3px rgba(0,0,0,.25); background: rgba(41,44,53, .4);
 }
 
+/* MAIN
+================= */
+
 .column ul { padding-left: 0; list-style: none; }
 
 .column ul li { margin-bottom: 1em; } 
@@ -103,13 +109,16 @@ header, [role="main"], footer { text-align: center; padding: 0 8px; }
 
 .weather img { background: #fff; border-radius: 6em; vertical-align: bottom; margin-right: 3px; }
 
-footer .container { border-top: 3px solid rgb(194,68,52); padding-top: 1em; padding-bottom: 2em; }
-
 .up { color: #299936; }
 
 .down { color: #992954; }
 
 .woot img { border-radius: 3px; }
+
+/* FOOTER
+================= */
+
+footer .container { border-top: 3px solid rgb(194,68,52); padding-top: 1em; padding-bottom: 2em; }
 
 .copyright { float: right; }
 
@@ -131,16 +140,9 @@ footer .container { border-top: 3px solid rgb(194,68,52); padding-top: 1em; padd
 
 .settings [type="submit"] { text-transform: uppercase; }
 
- 
-
 
 /* MEDIA QUERIES
 ================= */
-
-
-@media only screen and (min-width: 480px) {
-
-}
 
 @media only screen and (min-width: 768px) {
 
@@ -153,9 +155,5 @@ footer .container { border-top: 3px solid rgb(194,68,52); padding-top: 1em; padd
 .mobile_only { display: none; }
 
 .settings form { position: absolute; left: 115px; bottom: 0; }
-
-}
- 
-@media print {
 
 }
