@@ -1,0 +1,89 @@
+/*=======
+Stylesheet by Chris Johnson 
+http://chrisltd.com
+Created March 2013 
+=======*/
+
+/* HTML5 display definitions from h5bp.com */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+/* HELPERS
+================= */
+
+.hide { position: absolute; left:-999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
+.desktop_only { display: none; }
+
+.remove { display: none; }
+
+.reset { margin: 0; padding:0; border: 0; list-style: none; }
+
+.clearboth { clear: both; } 
+
+.floatright { float: right; } 
+
+.floatleft { float: left;  } 
+
+.alignright { float: right; margin: 0 0 10px 10px; } 
+
+.alignleft { float: left; margin: 0 10px 10px 0; } 
+
+.textcenter { text-align: center; }
+
+.textright { text-align: right; }
+
+.textleft { text-align: left; }
+
+.sans { font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; }
+
+.serif { font-family: Georgia, 'Times New Roman', Times, serif; }
+
+.hr { display: block; height: 1px; width: 100%; background: #000; margin: 1em 0; }
+
+.horizontal_list { list-style: none; margin: 0; padding: 0; }
+.horizontal_list li { list-style: none; float: left; margin: 0; padding: 0; }
+
+.ir { display: block; text-indent: -999em; overflow: hidden; }
+
+.clearfix:before, .clearfix:after { content: ""; display: table; } /* Clearfix: http://nicolasgallagher.com/micro-clearfix-hack */ 
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+/* BASE
+================= */
+
+body { overflow-y: scroll;   }
+
+a img { border: none; }
+
+header, [role="main"], footer { text-align: center; padding: 0 8px; }
+
+.container { max-width: 960px; margin: 0 auto; text-align: left; }
+
+[role="main"] { display: none; } /* Hide until ajax is done */
+
+.settings form { display: none; }
+
+
+/* MEDIA QUERIES
+================= */
+
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+.desktop_only { display: block; }
+
+.mobile_only { display: none; }
+
+}
+ 
+@media print {
+
+}

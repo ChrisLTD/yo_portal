@@ -2,15 +2,18 @@ body, form, h1, h2, h3, ul, li{
 	margin: 0;
 	padding: 0;
 }
+
 body{
 	background: #fff;
 	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	text-align: center;
 	font-size: 14px;
 	color: #333;
+	padding: 0 8px;
 }
+
 #wrapper{
-	width: 960px;
+	max-width: 960px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: left;
@@ -36,12 +39,7 @@ h2 a{
 }
 
 .column{
-	float: left;
-	width: 225px;
-	margin-right: 20px;
-}
-.last{
-	margin-right: 0;
+	width: 100%;
 }
 
 
@@ -61,7 +59,7 @@ p{
 
 
 /* SEARCH
-######################*/
+================= */
 #search{
 	display: block;
 	text-align: center;
@@ -133,7 +131,7 @@ input#submit:active{
 
 
 /* LISTS
-######################*/
+================= */
 
 ul{
 	list-style: none;
@@ -143,7 +141,7 @@ ul li{
 }
 
 	/* NEWS LIST
-	######################*/
+	================= */
 	
 	ul.news li a{
 		display: block;
@@ -155,7 +153,7 @@ ul li{
 
 
 	/* WOOT LIST
-	######################*/
+	================= */
 	ul.woot{
 		font-size: 12px;
 	}
@@ -175,7 +173,7 @@ ul li{
 
 
 	/* LINKS LIST
-	######################*/
+	================= */
 	ul.links a{
 		font-size: 12px;
 		color: #888;
@@ -194,7 +192,30 @@ ul li{
 
 
 /* UTILITY 
-######################*/
+================= */
 .clearboth{
 	clear:both;
+}
+
+
+/* MEDIA QUERIES
+================= */
+
+
+@media only screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+.column{
+	float: left;
+	width: 22%;
+	margin-right: 3%;
+}
+
+.last{
+	margin-right: 0;
+}
+
 }
