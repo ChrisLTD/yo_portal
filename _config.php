@@ -1,14 +1,10 @@
 <?php
-// Config
 
-// Error reporting 0 = off, -1 = on
-error_reporting(0);
-// error_reporting(-1);
+error_reporting(0); // 0 = off, -1 = on
 
-$portal_site_title = "yo<b>e</b>yo <b>portal</b>";
+$portal_site_title = "My P<b>o</b>rtal";
 
-$portal_cache_location = '/Users/chrisltd/Dropbox/work/MAMP/htdocs/portal/cache';
-// $portal_cache_location = '/home/yoeyo/webapps/htdocs/portal/cache';
+$portal_cache_location = '/Users/chrisltd/Dropbox/work/MAMP/htdocs/portal/cache'; // Absolute url to writable cache directory on your server
 
 $portal_cache_duration = 1800;
 
@@ -25,8 +21,8 @@ $portal_show_web_fonts = "on"; // "on" or "off"
 $portal_tracking_code = "<script type='text/javascript'>
 
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-9779773-3']);
-  _gaq.push(['_setDomainName', 'yoeyo.com']);
+  _gaq.push(['_setAccount', 'XXXXXXXX']);
+  _gaq.push(['_setDomainName', 'XXXXXXXXXX']);
   _gaq.push(['_trackPageview']);
 
   (function() {
@@ -37,7 +33,6 @@ $portal_tracking_code = "<script type='text/javascript'>
 
 </script>";
 
-$portal_web_font_code ='<script type="text/javascript" src="//use.typekit.net/doh5xwg.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>';
+$portal_web_font_code ="<link href='http://fonts.googleapis.com/css?family=Galindo' rel='stylesheet' type='text/css'>";
 
 ?>

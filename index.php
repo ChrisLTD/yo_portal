@@ -106,7 +106,7 @@ if(isset($_COOKIE['show_web_fonts'])){
     <footer>
     	<div class="container">
 
-				<div class="copyright">&copy;<?=date("Y");?> <a href="http://www.yoeyo.com">Yoeyo, Ltd.</a></div>
+				<div class="copyright">Developed by <a href="http://chrisltd.com">Chris Johnson</a></div>
 
 				<div class="settings">
 					<a href="#" data-open-toggle data-target=".settings form" data-toggle-type="fade" title="Settings"><img src="img/gear.png" width="32" height="32"> Settings</a>
