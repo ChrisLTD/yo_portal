@@ -9,6 +9,18 @@ if(isset($_COOKIE['zip'])){
 if(isset($_COOKIE['search_string'])){
 	$portal_search_string = $_COOKIE['search_string'];
 }
+
+if(isset($_COOKIE['search_autofocus'])){
+	$portal_search_autofocus = $_COOKIE['search_autofocus'];
+}
+
+if(isset($_COOKIE['show_news'])){
+	$portal_show_news = $_COOKIE['show_news'];
+}
+
+if(isset($_COOKIE['show_web_fonts'])){
+	$portal_show_web_fonts = $_COOKIE['show_web_fonts'];
+}
   
 ?><!doctype html>  
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -27,16 +39,21 @@ if(isset($_COOKIE['search_string'])){
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-
+  
+  <?php 
+  if($portal_show_web_fonts != "off"):
+  ?>
 	<script type="text/javascript" src="//use.typekit.net/doh5xwg.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<?php endif; ?>
+	
 
 	<link rel="stylesheet" href="css/normalize.css">  
   <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
-<body>
+<body class="<?php if($portal_show_news!="off"){ echo "news_on"; } ;?>">
 
   <div id="wrapper">
     <header>
@@ -45,7 +62,7 @@ if(isset($_COOKIE['search_string'])){
     		<h1 class="logo"><?=$portal_site_title;?></h1>
     		
 				<form action="<?=$portal_search_string;?>" method="GET" class="search">
-					<input type="search" name="query" autofocus>
+					<input type="search" name="query" <?php if($portal_search_autofocus=="on"){ echo "autofocus"; } ;?>>
 					<input type="submit" value="Search">
 				</form>
 
@@ -93,13 +110,23 @@ if(isset($_COOKIE['search_string'])){
 				<div class="settings">
 					<a href="#" data-open-toggle data-target=".settings form" data-toggle-type="fade" title="Settings"><img src="img/gear.png" width="32" height="32"> Settings</a>
 					<form action="_setcookies.php" method="GET" class="arrow_box">
-						<label>ZIP Code</label>
+						<label title="Put in your ZIP code to get personalized weather">ZIP Code</label>
 						<input type="number" name="zip" size="40" value="<?=$portal_zip_code;?>" pattern="[0-9]*" maxlength="5" min="0">
 						<div class="hr"></div>
-						<label>Search String</label>
+						<label title="Use this to change the search engine">Search String</label>
 						<input type="url" name="search_string" size="40" value="<?=$portal_search_string;?>" pattern="https?://.+">
 						<div class="hr"></div>
+						<label title="Should the cursor enter the search box when the page loads?">Search Autofocus</label>
+						<input type="checkbox" name="search_autofocus" value="on" <?php if($portal_search_autofocus=="on"){ echo "checked"; } ;?>>
+						<div class="hr"></div>
+						<label title="Turn off to only show search box">Show News & Links</label>
+						<input type="checkbox" name="show_news" value="on" <?php if($portal_show_news=="on"){ echo "checked"; } ;?>>
+						<div class="hr"></div>
+						<label title="Turn off to speed up page load by disabling web fonts">Show Web Fonts</label>
+						<input type="checkbox" name="show_web_fonts" value="on" <?php if($portal_show_web_fonts=="on"){ echo "checked"; } ;?>>
+						<div class="hr"></div>
 						<input type="submit" value="Save" class="floatright"><small><a href="_destroycookies.php">Reset settings</a></small>
+						<a href="#" class="close" data-open-toggle data-target=".settings form" data-toggle-type="fade" title="Close">&times;</a>
 					</form>
 				</div><!--/.settings-->
 				
@@ -123,6 +150,10 @@ if(isset($_COOKIE['search_string'])){
   <script>
   $(function(){
   
+  <?php 
+  if($portal_show_news != "off"):
+  ?>
+  
   // Call in the feeds
 	$.ajax({
 		url: "_fetchfeeds.php?zip=<?=urlencode($portal_zip_code);?>",
@@ -132,7 +163,8 @@ if(isset($_COOKIE['search_string'])){
 			$('[role="main"]').fadeIn();
 		}
 	});
-
+	
+	<?php endif; ?>
 	
 	// Open and close toggle
   $("[data-open-toggle]").click(function(event) {
