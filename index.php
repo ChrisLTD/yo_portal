@@ -34,8 +34,6 @@ if(isset($_COOKIE['show_web_fonts'])){
  
   <meta name="viewport" content="width=device-width">
   
-  <link rel="icon" href="favicon.ico" type="image/ico">
-  
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
