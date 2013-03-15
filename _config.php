@@ -22,4 +22,22 @@ $portal_show_news = "on"; // "on" or "off"
 
 $portal_show_web_fonts = "on"; // "on" or "off"
 
+$portal_footer_code = "<script type='text/javascript'>
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9779773-3']);
+  _gaq.push(['_setDomainName', 'yoeyo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>";
+
+$portal_web_font_code ='<script type="text/javascript" src="//use.typekit.net/doh5xwg.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>';
+
 ?>

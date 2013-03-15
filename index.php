@@ -41,11 +41,10 @@ if(isset($_COOKIE['show_web_fonts'])){
   <![endif]-->
   
   <?php 
-  if($portal_show_web_fonts != "off"):
+  if($portal_show_web_fonts != "off"){
+    echo $portal_web_font_code;
+  }
   ?>
-	<script type="text/javascript" src="//use.typekit.net/doh5xwg.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	<?php endif; ?>
 	
 
 	<link rel="stylesheet" href="css/normalize.css">  
@@ -111,7 +110,7 @@ if(isset($_COOKIE['show_web_fonts'])){
 					<a href="#" data-open-toggle data-target=".settings form" data-toggle-type="fade" title="Settings"><img src="img/gear.png" width="32" height="32"> Settings</a>
 					<form action="_setcookies.php" method="GET" class="arrow_box">
 						<label title="Put in your ZIP code to get personalized weather">ZIP Code</label>
-						<input type="number" name="zip" size="40" value="<?=$portal_zip_code;?>" pattern="[0-9]*" maxlength="5" min="0">
+						<input type="text" name="zip" size="40" value="<?=$portal_zip_code;?>">
 						<div class="hr"></div>
 						<label title="Use this to change the search engine">Search String</label>
 						<input type="url" name="search_string" size="40" value="<?=$portal_search_string;?>" pattern="https?://.+">
@@ -187,6 +186,8 @@ if(isset($_COOKIE['show_web_fonts'])){
   
 	});
   </script>
+
+  <?=$portal_footer_code;?>
 
 </body>
 </html>
