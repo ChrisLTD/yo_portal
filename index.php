@@ -94,7 +94,7 @@ $wootshirt->handle_content_type();
 </div><!--/search-->
 
 <div class="column first">
-	<h2><a href="http://www.nytimes.com?_r=1&partner=rss&emc=rss">NYTimes</a> <em style="font-size: 50%; text-transform:uppercase;opacity: .5"><a href="http://prototype.nytimes.com/gst/articleSkimmer/">skimmer</a></em></h2>
+	<h2><a href="http://www.nytimes.com?_r=1&partner=rss&emc=rss">NYTimes</a> <em style="font-size: 50%; text-transform:uppercase;opacity: .5"><a href="http://www.nytimes.com/skimmer">skimmer</a></em></h2>
 		<ul class="news">
 			<? 
 			$nytitems = $nyt->get_items();
