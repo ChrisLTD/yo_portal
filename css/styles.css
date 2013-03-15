@@ -124,7 +124,7 @@ footer .container { padding-top: 1em; padding-bottom: 2em; max-width: 650px; }
 
 .news_on footer .container { max-width: inherit; border-top: 3px solid rgb(194,68,52);  }
 
-.copyright { float: right;  }
+.copyright { float: right; z-index: 2; position: relative;  }
 
 .settings { position: relative;  }
 
@@ -134,7 +134,7 @@ footer .container { padding-top: 1em; padding-bottom: 2em; max-width: 650px; }
 
 .settings [data-open-toggle] img { vertical-align: -10px; }
 
-.settings form { display: none; padding: 1em; color: rgb(231,231,231); border-radius: .75em; box-shadow: 1px 1px 4px rgba(0,0,0,.3); background: rgb(41,44,53); border: 3px solid  rgb(194,68,52); margin-top: 10px; }
+.settings form { display: none; position: relative; padding: 1em; color: rgb(231,231,231); border-radius: .75em; box-shadow: 1px 1px 4px rgba(0,0,0,.3); background: rgb(41,44,53); border: 3px solid  rgb(194,68,52); margin-top: 10px; }
 
 .settings form a { color: rgb(194,68,52); }
 
