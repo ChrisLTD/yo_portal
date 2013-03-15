@@ -1,0 +1,200 @@
+body, form, h1, h2, h3, ul, li{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #fff;
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	text-align: center;
+	font-size: 14px;
+	color: #333;
+}
+#wrapper{
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+a{
+	text-decoration: none;
+	color: #555;
+}
+a:hover{
+	color: #FF0D00;
+}
+
+h1{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 14px;
+	color: #FF0D00;
+}
+
+h2 a{
+	color: #333;
+}
+
+.column{
+	float: left;
+	width: 225px;
+	margin-right: 20px;
+}
+.last{
+	margin-right: 0;
+}
+
+
+cite#footer{
+ 	display: block;
+ 	float: right;
+	font-size: 10px;
+	font-style: normal;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+p{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+/* SEARCH
+######################*/
+#search{
+	display: block;
+	text-align: center;
+    background: #ccc;
+    padding: 25px;
+    margin-bottom: 30px;
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#search h2{
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: normal;
+	letter-spacing: .15em;
+	font-size:22px;
+}
+
+#search table{
+	border-collapse: collapse;
+}
+#search table td{
+	padding: 0;
+}
+
+.weather img{
+	position: relative;
+	float: right;
+	margin-top: 0;
+	margin-right: 0;
+	border: 0;
+}
+
+.markets h2{
+	margin-bottom: 10px;
+}
+
+.markets .down{
+	color: #FF0D00;
+}
+
+.markets .up{
+	color: #00B244;
+}
+
+.markets li{
+	margin-top: 0;
+}
+
+#search input, #search select{
+	font-size:22px;
+	margin-left: 8px;
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	border: 0;
+	padding: 0px;
+	background: #fff;
+	color: #333;
+}
+
+input#query{
+	padding: 1px;
+}
+
+input#submit:active{
+	color: #fff;
+	background: #333;
+}
+
+
+
+/* LISTS
+######################*/
+
+ul{
+	list-style: none;
+}
+ul li{
+	margin-top: 10px;
+}
+
+	/* NEWS LIST
+	######################*/
+	
+	ul.news li a{
+		display: block;
+	}
+
+	ul.news li a span{
+		display: none;
+	}
+
+
+	/* WOOT LIST
+	######################*/
+	ul.woot{
+		font-size: 12px;
+	}
+	
+	ul.woot li a{
+		display: block;
+		clear: right;
+		font-weight: bold;
+	}
+	
+	ul.woot li a img{
+		float: right;
+		margin-bottom: 10px;
+		margin-left: 5px;
+		border: 1px solid #ddd;
+	}
+
+
+	/* LINKS LIST
+	######################*/
+	ul.links a{
+		font-size: 12px;
+		color: #888;
+	}
+	
+	ul.links a strong{
+		font-weight: normal;
+		font-size: 14px;
+		color: #555;
+	}
+	
+	ul.links a:hover strong{
+		color: #FF0D00;
+	}
+
+
+
+/* UTILITY 
+######################*/
+.clearboth{
+	clear:both;
+}
