@@ -22,7 +22,7 @@ $portal_show_news = "on"; // "on" or "off"
 
 $portal_show_web_fonts = "on"; // "on" or "off"
 
-$portal_footer_code = "<script type='text/javascript'>
+$portal_tracking_code = "<script type='text/javascript'>
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-9779773-3']);

@@ -47,8 +47,10 @@ if(isset($_COOKIE['show_web_fonts'])){
   ?>
 	
 
-	<link rel="stylesheet" href="css/normalize.css">  
-  <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/normalize.css">  
+<link rel="stylesheet" href="css/styles.css">
+
+  <?=$portal_tracking_code;?>
 
 </head>
 
@@ -186,8 +188,6 @@ if(isset($_COOKIE['show_web_fonts'])){
   
 	});
   </script>
-
-  <?=$portal_footer_code;?>
 
 </body>
 </html>
