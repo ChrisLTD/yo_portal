@@ -3,6 +3,7 @@
 $portal_cache_location = '/Users/chrisltd/Dropbox/work/MAMP/htdocs/portal/cache';
 // $portal_cache_location = '/home/yoeyo/webapps/htdocs/portal/cache';
 $portal_cache_duration = 1800;
+$portal_zip_code = '27713';
 
 // Include SimplePie RSS parser
 require_once('simplepie/autoloader.php');
@@ -18,7 +19,7 @@ $nyt->init();
 $nyt->handle_content_type();  
 
 $weather = new SimplePie();  
-$weather->set_feed_url('http://rss.weather.com/weather/rss/local/27713?cm_ven=LWO&cm_cat=rss&par=LWO_rss');  
+$weather->set_feed_url('http://rss.weather.com/weather/rss/local/' . $portal_zip_code . '?cm_ven=LWO&cm_cat=rss&par=LWO_rss');  
 $weather->enable_cache(true);  
 $weather->set_cache_duration($portal_cache_duration);  
 $weather->set_cache_location($portal_cache_location);  
@@ -112,11 +113,12 @@ $wootshirt->handle_content_type();
 <div class="column">
 	<? 
 		$item = $weather->get_item(); 
+		$title = $item->get_title();
 		$description = $item->get_description();
 		$reduceddescription = str_replace(". For more details?", "", $description); //Parse odd text from description
 	?>
 	<h2><a href="<?=$item->get_link();?>">Weather</a></h2>
-		<p class="weather"><a href="<?=$item->get_link();?>"><?= $reduceddescription;?> in Durham, NC at <?=$item->get_date("g:i a");?>.</a></p>
+		<p class="weather"><a href="<?=$item->get_link();?>"><?=$title;?>:<br><b><?= $reduceddescription;?></b></a></p>
 	 
 	 <br>
 	
@@ -124,7 +126,8 @@ $wootshirt->handle_content_type();
 		<h2>Markets</h2>
 		<ul>
 		
-			<?  $item = $markets->get_item(0); //Get S&P 500 
+			<?  
+				$item = $markets->get_item(0); //Get S&P 500 
 				$description = $item->get_description();
 				$splitdescription = explode(" ", $description);
 				$pricechange = $splitdescription[7];
@@ -137,7 +140,8 @@ $wootshirt->handle_content_type();
 			   }
 			?></a></li>
 			
-			<?  $item = $markets->get_item(1); //Get Apple
+			<?  
+				$item = $markets->get_item(1); //Get Apple
 				$description = $item->get_description();
 				$splitdescription = explode(" ", $description);
 				$pricechange = $splitdescription[7];
