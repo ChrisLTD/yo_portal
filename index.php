@@ -136,10 +136,10 @@ if(isset($_COOKIE['search_string'])){
 		$(this).toggleClass("toggled");
 		switch(toggleType){
 			case "slide":
-				$(toggleTarget).slideToggle();
+				$(toggleTarget).slideToggle('fast');
 				break;
 			case "fade":
-				$(toggleTarget).fadeToggle();
+				$(toggleTarget).fadeToggle('fast');
 				break;
 			default:
 				$(toggleTarget).toggle();
