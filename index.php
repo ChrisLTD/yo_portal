@@ -109,24 +109,31 @@ if(isset($_COOKIE['search_string'])){
  
   </div> <!-- /#wrapper -->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<script>
+	if ('__proto__' in {}) {
+    // IS NOT IE
+		document.write('<script src="js/zepto.min.js"><\/script>');
+		document.write('<script src="js/zepto.fx_methods.js"><\/script>');
+  } else {
+    // IS IE
+		document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"><\/script>');
+  }
+  </script>
+	
   <script>
   $(function(){
   
   // Call in the feeds
 	$.ajax({
 		url: "_fetchfeeds.php?zip=<?=urlencode($portal_zip_code);?>",
-		cache: false
-	}).done(function( html ) {
-		$('[role="main"] > .container').prepend( html );
-		$('footer').fadeOut( function(){
-			$('[role="main"]').slideDown( function(){
-				$('footer').fadeIn();
-			});
-		});
-		
+		cache: false,
+		success: function(html){
+			$('[role="main"] > .container').prepend( html );
+			$('[role="main"]').fadeIn();
+		}
 	});
-	
+
 	
 	// Open and close toggle
   $("[data-open-toggle]").click(function(event) {
