@@ -144,7 +144,7 @@ footer .container { border-top: 3px solid rgb(194,68,52); padding-top: 1em; padd
 
 @media only screen and (min-width: 768px) {
 
-.column { width: 30%; margin-left: 3%; float: left; }
+.column { width: 30%; margin-left: 5%; float: left; }
 
 .column:first-child { margin-left: 0; }
 
