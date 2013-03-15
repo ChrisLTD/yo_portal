@@ -62,7 +62,7 @@ if(isset($_COOKIE['show_web_fonts'])){
     		<h1 class="logo"><?=$portal_site_title;?></h1>
     		
 				<form action="<?=$portal_search_string;?>" method="GET" class="search">
-					<input type="search" name="query" <?php if($portal_search_autofocus=="on"){ echo "autofocus"; } ;?>>
+					<input type="text" name="query" <?php if($portal_search_autofocus=="on"){ echo "autofocus"; } ;?>>
 					<input type="submit" value="Search">
 				</form>
 
