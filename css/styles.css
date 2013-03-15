@@ -121,13 +121,15 @@ footer .container { border-top: 3px solid rgb(194,68,52); padding-top: 1em; padd
 
 .settings [data-open-toggle] img { vertical-align: -10px; }
 
-.settings form { display: none; position: absolute; left: 115px; bottom: 0; padding: 1em; color: rgb(231,231,231); border-radius: .75em; box-shadow: 1px 1px 4px rgba(0,0,0,.3); background: rgb(41,44,53); border: 3px solid  rgb(194,68,52); }
+.settings form { display: none; padding: 1em; color: rgb(231,231,231); border-radius: .75em; box-shadow: 1px 1px 4px rgba(0,0,0,.3); background: rgb(41,44,53); border: 3px solid  rgb(194,68,52); }
 
 .settings form a { color: rgb(194,68,52); }
 
 .settings label { width: 25%; display: inline-block; }
 
-.settings label + input { width: 65%; margin-left: 8px; }
+.settings label + input { width: 60%; margin-left: 5px; }
+
+.settings [type="submit"] { text-transform: uppercase; }
 
  
 
@@ -149,6 +151,8 @@ footer .container { border-top: 3px solid rgb(194,68,52); padding-top: 1em; padd
 .desktop_only { display: block; }
 
 .mobile_only { display: none; }
+
+.settings form { position: absolute; left: 115px; bottom: 0; }
 
 }
  
