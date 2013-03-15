@@ -77,7 +77,7 @@ $wootshirt->handle_content_type();
 		<td>
 			<select name="search">
 			  <option value="google">Google</option>
-			  <option value="blekko">Blekko</option>
+			  <option value="bing">Bing</option>
 				<option value="amazon">Amazon</option>
 				<option value="wolfram">Wolfram Alpha</option>
 				<option value="wikipedia">Wikipedia</option>

@@ -2,6 +2,7 @@
 
 /*
 Google http://www.google.com/search?q=star+trek
+http://www.bing.com/search?q=star+trek
 Amazon http://www.amazon.com/s/ref=nb_ss_gw?url=search-alias%3Daps&field-keywords=star+trek
 Wolfram Alpha http://www37.wolframalpha.com/input/?i=star+trek
 IMDB http://www.imdb.com/find?s=all&q=star+trek
@@ -18,12 +19,7 @@ Flickr CC http://www.flickr.com/search/?l=cc&q=star%20trek
 
 */
 
-if(!$_GET["query"] || $_GET["query"] == ""){ 
-	header( 'Location: http://www.yoeyo.com/portal/wireframe-layout.php?searcherror=1' );
-}
-
 $query = urlencode($_GET["query"]);
-
 
 switch ($_GET["search"]) {
 
@@ -51,8 +47,8 @@ switch ($_GET["search"]) {
 		header( 'Location: http://www.flickr.com/search/?l=cc&q=' . $query);
 		break;
 		
-	case "blekko":
-  		header( 'Location: http://blekko.com/ws/' . $query);
+	case "bing":
+  		header( 'Location: http://www.bing.com/search?q=' . $query);
   		break;
 	
 	default:
