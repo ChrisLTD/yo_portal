@@ -4,6 +4,16 @@ $portal_cache_location = '/Users/chrisltd/Dropbox/work/MAMP/htdocs/portal/cache'
 // $portal_cache_location = '/home/yoeyo/webapps/htdocs/portal/cache';
 $portal_cache_duration = 1800;
 $portal_zip_code = '27713';
+$portal_search_string = 'http://www.google.com/search?q=';
+
+// Load settings from cookies
+if(isset($_COOKIE['zip'])){
+	$portal_zip_code = $_COOKIE['zip'];
+}
+
+if(isset($_COOKIE['search_string'])){
+	$portal_zip_code = $_COOKIE['search_string'];
+}
 
 // Include SimplePie RSS parser
 require_once('simplepie/autoloader.php');
@@ -36,7 +46,7 @@ $markets->handle_content_type();
 
 
 //Include Woot item class
-require 'scripts/simplepie_woot.inc';  
+require_once('simplepie/simplepie_woot.inc');
 
 $woot = new SimplePie();  
 $woot->set_feed_url('http://www.woot.com/salerss.aspx');  
@@ -71,26 +81,13 @@ $wootshirt->handle_content_type();
 <h1>yoeyo.com/portal</h1>
 
 <div id="search">
-	<form action="_search.php" method="GET">
-	<table align="center">
-	<tr>
-		<td><h2>Search</h2></td>
-		<td>
-			<select name="search">
-			  <option value="google">Google</option>
-			  <option value="bing">Bing</option>
-				<option value="amazon">Amazon</option>
-				<option value="wolfram">Wolfram Alpha</option>
-				<option value="wikipedia">Wikipedia</option>
-				<option value="imdb">IMDB</option>
-				<option value="pricegrabber">Price Grabber</option>
-				<option value="flickrcc"">Flickr CC</option>
-			</select>
-		</td>
-		<td><input type="text" name="query" size="40" id="query" autofocus></td>
-		<td><input type="submit" value="&nbsp;Go&nbsp;" id="submit"></td>
-	</tr>
-	</table>
+	<form action="<?=$portal_search_string;?>" method="GET">
+		<table align="center">
+			<tr>
+				<td><input type="text" name="query" size="40" id="query" autofocus></td>
+				<td><input type="submit" value="Search" id="submit"></td>
+			</tr>
+		</table>
 	</form>
 </div><!--/search-->
 
@@ -207,13 +204,11 @@ $wootshirt->handle_content_type();
 	<h2>Links</h2>
 		<ul class="links">
 			<li><a href="http://www.msnbc.com"><strong>MSNBC</strong> &ndash; News</a></li>
-			<li><a href="http://www.wral.com"><strong>WRAL</strong> &ndash; Local news</a></li>
 			<li><a href="http://www.espn.com"><strong>ESPN</strong> &ndash; Sports</a></li>
-			<li><a href="http://www.streetsatsouthpoint.com/movies"><strong>Southpoint Movies</strong> &ndash; Times</a></li>
 			<li><a href="http://news.ycombinator.com/"><strong>Hacker News</strong> &ndash; Nerd news</a></li>
 			<li><a href="http://www.dodtracker.com"><strong>DOD Tracker</strong> &ndash; Deals</a></li>
-			<li><a href="http://tvlistings.aol.com/listings/nc/durham/time-warner-cable-digital-non-reb?zipcode=27701"><strong>TV Listings</strong> &ndash; TWC-NC</a></li>
 			<li><a href="http://www.netflix.com"><strong>Netflix</strong> &ndash; Movies at home</a></li>
+			<li><a href="http://instantwatcher.com"><strong>Instant Watcher</strong> &ndash; New on Netflix</a></li>
 		</ul>
 </div>
 
@@ -224,18 +219,26 @@ $wootshirt->handle_content_type();
 			<li><a href="http://my.yahoo.com"><strong>My Yahoo</strong> &ndash; Portal</a></a></li>
 			<li><a href="http://www.google.com/calendar"><strong>Google Calendar</strong> &ndash; Plan ahead</a></li>
 			<li><a href="http://www.google.com/maps"><strong>Google Maps</strong> &ndash; Find stuff</a></li>
-			<li><a href="http://www.rememberthemilk.com/login/"><strong>Remember the Milk</strong> &ndash; To do list</a></li>
-			<li><a href="http://www.google.com/docs"><strong>Google Docs</strong> &ndash; Online Office</a></li>
-			<li><a href="http://www.google.com/reader"><strong>GReader</strong> &ndash; RSS feeds</a></li>
+			<li><a href="http://drive.google.com/"><strong>Google Drive</strong> &ndash; Online Office</a></li>
 			<li><a href="http://www.facebook.com"><strong>Facebook</strong> &ndash; Social network</a></li>
 			<li><a href="http://www.twitter.com"><strong>Twitter</strong> &ndash; Social IMing</a></li>
 			<li><a href="http://www.flickr.com"><strong>Flickr</strong> &ndash; Photos</a></li>
-			<li><a href="http://www.picnik.com/app"><strong>Picnik</strong> &ndash; Image Editor</a></li>
-			<li><a href="http://www.evernote.com"><strong>Evernote</strong> &ndash; Remember stuff</a></li>
+			<li><a href="http://www.picmonkey.com/"><strong>Picmonkey</strong> &ndash; Image Editor</a></li>
 		</ul>
 </div>
 
 <div class="clearboth"></div>
+
+<div class="settings">
+<h2>Settings</h2>
+	<form action="_setcookie.php" method="GET">
+		<label>ZIP Code</label>
+		<input type="text" name="zip" size="40" value="<?=$portal_zip_code;?>"><br>
+		<label>Search String</label>
+		<input type="text" name="search_string" size="40" value="<?=$portal_search_string;?>">
+		<br><input type="submit" value="Set">
+	</form>
+</div>
 
 <cite id="footer" class="column last">&copy;<?=date("Y");?> <a href="http://www.yoeyo.com">Yoeyo, Ltd.</a></cite>
 
