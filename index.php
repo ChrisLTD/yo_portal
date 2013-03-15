@@ -19,7 +19,7 @@ if(isset($_COOKIE['search_string'])){
 <head>
   <meta charset="utf-8">
 
-  <title>yoeyo.com/portal</title>
+  <title><?=strip_tags($portal_site_title);?></title>
  
   <meta name="viewport" content="width=device-width">
   
@@ -28,6 +28,9 @@ if(isset($_COOKIE['search_string'])){
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+
+	<script type="text/javascript" src="//use.typekit.net/doh5xwg.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 	<link rel="stylesheet" href="css/normalize.css">  
   <link rel="stylesheet" href="css/styles.css">
@@ -40,7 +43,7 @@ if(isset($_COOKIE['search_string'])){
     <header>
     	<div class="container">
     		
-    		<h1 class="logo">yoeyo.com/portal</h1>
+    		<h1 class="logo"><?=$portal_site_title;?></h1>
     		
 				<form action="<?=$portal_search_string;?>" method="GET" class="search">
 					<input type="search" name="query" autofocus>
@@ -50,7 +53,7 @@ if(isset($_COOKIE['search_string'])){
     	</div><!--/.container-->
     </header>
 
-    <div role="main">
+    <div role="main" class="clearfix">
     	<div class="container">
 					
 				<div class="column">
@@ -63,9 +66,8 @@ if(isset($_COOKIE['search_string'])){
 							<li><a href="http://www.netflix.com"><strong>Netflix</strong> &ndash; Movies at home</a></li>
 							<li><a href="http://instantwatcher.com"><strong>Instant Watcher</strong> &ndash; New on Netflix</a></li>
 						</ul>
-				</div><!--/.column-->
-
-				<div class="column">
+						
+						
 					<h2>Apps</h2>
 						<ul class="links">
 							<li><a href="http://www.gmail.com"><strong>GMail</strong> &ndash; E-mail</a></li>
@@ -87,19 +89,21 @@ if(isset($_COOKIE['search_string'])){
     <footer>
     	<div class="container">
 
+				<div class="copyright">&copy;<?=date("Y");?> <a href="http://www.yoeyo.com">Yoeyo, Ltd.</a></div>
+
 				<div class="settings">
-					<h2 data-open-toggle data-target=".settings form" data-toggle-type="slide">Settings</h2>
-					<form action="_setcookies.php" method="GET">
+					<a href="#" data-open-toggle data-target=".settings form" data-toggle-type="fade" title="Settings"><img src="img/gear.png" width="32" height="32"> Settings</a>
+					<form action="_setcookies.php" method="GET" class="arrow_box">
 						<label>ZIP Code</label>
-						<input type="number" name="zip" size="40" value="<?=$portal_zip_code;?>" pattern="[0-9]*" maxlength="5" min="0"><br>
+						<input type="number" name="zip" size="40" value="<?=$portal_zip_code;?>" pattern="[0-9]*" maxlength="5" min="0">
+						<div class="hr"></div>
 						<label>Search String</label>
 						<input type="url" name="search_string" size="40" value="<?=$portal_search_string;?>" pattern="https?://.+">
-						<br><input type="submit" value="Save"> <a href="_destroycookies.php">Reset settings</a>
+						<div class="hr"></div>
+						<input type="submit" value="Save" class="floatright"><small><a href="_destroycookies.php">Reset settings</a></small>
 					</form>
 				</div><!--/.settings-->
 				
-				<div class="copyright">&copy;<?=date("Y");?> <a href="http://www.yoeyo.com">Yoeyo, Ltd.</a></div>
-
     	</div><!--/.container-->
     </footer>
  

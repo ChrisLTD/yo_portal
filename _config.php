@@ -1,6 +1,8 @@
 <?php
 // Config
 
+$portal_site_title = "yo<b>e</b>yo <b>portal</b>";
+
 $portal_cache_location = '/Users/chrisltd/Dropbox/work/MAMP/htdocs/portal/cache';
 // $portal_cache_location = '/home/yoeyo/webapps/htdocs/portal/cache';
 

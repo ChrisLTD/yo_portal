@@ -9,6 +9,18 @@ class SimplePie_Item_Woot extends SimplePie_Item
 		return $data[0]['data'];
 	}
 
+	function get_standard_src() 
+	{
+		$data = $this->get_item_tags(SIMPLE_NAMESPACE_WOOT, 'standardimage');
+		return $data[0]['data'];
+	}
+	
+	function get_substandard_src() 
+	{
+		$data = $this->get_item_tags(SIMPLE_NAMESPACE_WOOT, 'substandardimage');
+		return $data[0]['data'];
+	}
+
 	 function get_soldout_status() 
 	{
 		$data = $this->get_item_tags(SIMPLE_NAMESPACE_WOOT, 'soldout');
