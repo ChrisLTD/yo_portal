@@ -102,10 +102,9 @@ $wootshirt->handle_content_type();
 			foreach($nytitems as $item) : 
 			?>  
 				<? 
-				$description = $item->get_description();
-				$splitdescription = explode("<br", $description); //Parse ads from description
+				$description = trim(strip_tags($item->get_description()));
 				?>
-				<li><a href="<?=$item->get_link()?>" title="<?=$splitdescription[0];?>"><?=$item->get_title(); ?></a></li>
+				<li><a href="<?=$item->get_link()?>" title="<?=$description;?>"><?=$item->get_title(); ?></a></li>
 			<? endforeach; ?>
 		</ul>
 </div>
