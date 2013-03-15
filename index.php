@@ -1,30 +1,35 @@
 <?
-//Include SimplePie RSS parser
-require 'scripts/simplepie.inc';  
+// Settings
+$portal_cache_location = '/Users/chrisltd/Dropbox/work/MAMP/htdocs/portal/cache';
+// $portal_cache_location = '/home/yoeyo/webapps/htdocs/portal/cache';
+$portal_cache_duration = 1800;
 
-//Get RSS Feeds
+// Include SimplePie RSS parser
+require_once('simplepie/autoloader.php');
+
+// Get RSS Feeds
 
 $nyt = new SimplePie();  
-$nyt->set_feed_url('feed://feeds.nytimes.com/nyt/rss/HomePage');  
+$nyt->set_feed_url('http://feeds.nytimes.com/nyt/rss/HomePage');  
 $nyt->enable_cache(true);  
-$nyt->set_cache_duration(1800);  
-$nyt->set_cache_location('/home/yoeyo/webapps/htdocs/portal/cache');  
+$nyt->set_cache_duration($portal_cache_duration);  
+$nyt->set_cache_location($portal_cache_location);  
 $nyt->init();  
 $nyt->handle_content_type();  
 
 $weather = new SimplePie();  
-$weather->set_feed_url('feed://rss.weather.com/weather/rss/local/27713?cm_ven=LWO&cm_cat=rss&par=LWO_rss');  
+$weather->set_feed_url('http://rss.weather.com/weather/rss/local/27713?cm_ven=LWO&cm_cat=rss&par=LWO_rss');  
 $weather->enable_cache(true);  
-$weather->set_cache_duration(1800);  
-$weather->set_cache_location('/home/yoeyo/webapps/htdocs/portal/cache');  
+$weather->set_cache_duration($portal_cache_duration);  
+$weather->set_cache_location($portal_cache_location);  
 $weather->init();  
 $weather->handle_content_type();  
 
 $markets = new SimplePie();  
 $markets->set_feed_url('http://pipes.yahoo.com/pipes/pipe.run?_id=ZKJobpaj3BGZOew9G8evXg&_render=rss&ticker=^GSPC%2C^DJI%2C^IXIC');  
 $markets->enable_cache(true);  
-$markets->set_cache_duration(1800);  
-$markets->set_cache_location('/home/yoeyo/webapps/htdocs/portal/cache');  
+$markets->set_cache_duration($portal_cache_duration);  
+$markets->set_cache_location($portal_cache_location);  
 $markets->init();  
 $markets->handle_content_type();  
 
@@ -33,20 +38,20 @@ $markets->handle_content_type();
 require 'scripts/simplepie_woot.inc';  
 
 $woot = new SimplePie();  
-$woot->set_feed_url('feed://www.woot.com/salerss.aspx');  
+$woot->set_feed_url('http://www.woot.com/salerss.aspx');  
 $woot->set_item_class("SimplePie_Item_Woot");  
 $woot->enable_cache(true);  
-$woot->set_cache_duration(1800);  
-$woot->set_cache_location('/home/yoeyo/webapps/htdocs/portal/cache');  
+$woot->set_cache_duration($portal_cache_duration);  
+$woot->set_cache_location($portal_cache_location);  
 $woot->init();  
 $woot->handle_content_type();  
   
 $wootshirt = new SimplePie();  
-$wootshirt->set_feed_url('feed://shirt.woot.com/salerss.aspx');  
+$wootshirt->set_feed_url('http://shirt.woot.com/salerss.aspx');  
 $wootshirt->set_item_class("SimplePie_Item_Woot");  
 $wootshirt->enable_cache(true);  
-$wootshirt->set_cache_duration(1800);  
-$wootshirt->set_cache_location('/home/yoeyo/webapps/htdocs/portal/cache');  
+$wootshirt->set_cache_duration($portal_cache_duration);  
+$wootshirt->set_cache_location($portal_cache_location);  
 $wootshirt->init();  
 $wootshirt->handle_content_type();  
   
@@ -56,8 +61,8 @@ $wootshirt->handle_content_type();
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>yoeyo.com/portal</title>
-	<link rel="icon" href="/favicon.ico" type="image/ico">
-	<link href="default.css" rel="stylesheet" type="text/css">
+	<link rel="icon" href="favicon.ico" type="image/ico">
+	<link href="css/default.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="wrapper">
@@ -65,8 +70,7 @@ $wootshirt->handle_content_type();
 <h1>yoeyo.com/portal</h1>
 
 <div id="search">
-	<form action="scripts/search.php" method="GET">
-	<? if($_GET["searcherror"]){ echo "<em>Error in search function. Please try again, or complain to Chris about it.</em>";} ?>
+	<form action="_search.php" method="GET">
 	<table align="center">
 	<tr>
 		<td><h2>Search</h2></td>
@@ -117,7 +121,7 @@ $wootshirt->handle_content_type();
 	 
 	 <br>
 	
-	<? //include "scripts/markets.php"; ?>
+	<? //include "_markets.php"; ?>
 
 	 
 	<h2>Woot</h2>
