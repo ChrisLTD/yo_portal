@@ -1,10 +1,11 @@
 <?php
 
-error_reporting(-1); // 0 = off, -1 = on
+error_reporting(0); // 0 = off, -1 = on
+// If you turn error reporting on, you will get an include error if you don't have a _local_config.php file, you can supress this with a blank file
 
 $portal_site_title = "My P<b>o</b>rtal";
 
-$portal_cache_location = '/Users/chrisltd/Dropbox/work/MAMP/htdocs/yo_portal/cache'; // Absolute url to writable cache directory on your server
+$portal_cache_location = '/your/absolute/server/path/here'; // Absolute url to writable cache directory on your server
 
 $portal_cache_duration = 1800;
 
@@ -40,5 +41,7 @@ $portal_tracking_code = "<script type='text/javascript'>
 </script>";
 
 $portal_web_font_code ="<link href='http://fonts.googleapis.com/css?family=Galindo' rel='stylesheet' type='text/css'>";
+
+include "_config_local.php"; // Local environment overrides
 
 ?>
