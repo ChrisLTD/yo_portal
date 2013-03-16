@@ -1,10 +1,10 @@
 <?php
 
-error_reporting(0); // 0 = off, -1 = on
+error_reporting(-1); // 0 = off, -1 = on
 
 $portal_site_title = "My P<b>o</b>rtal";
 
-$portal_cache_location = '/Users/chrisltd/Dropbox/work/MAMP/htdocs/portal/cache'; // Absolute url to writable cache directory on your server
+$portal_cache_location = '/Users/chrisltd/Dropbox/work/MAMP/htdocs/yo_portal/cache'; // Absolute url to writable cache directory on your server
 
 $portal_cache_duration = 1800;
 

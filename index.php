@@ -118,10 +118,10 @@ if(isset($_COOKIE['show_web_fonts'])){
 						<label title="Should the cursor enter the search box when the page loads?">Search Autofocus</label>
 						<input type="checkbox" name="search_autofocus" value="on" <?php if($portal_search_autofocus=="on"){ echo "checked"; } ;?>>
 						<div class="hr"></div>
-						<label title="Turn off to only show search box">Show News & Links</label>
+						<label title="Turn off to only show search box">Load News & Links</label>
 						<input type="checkbox" name="show_news" value="on" <?php if($portal_show_news=="on"){ echo "checked"; } ;?>>
 						<div class="hr"></div>
-						<label title="Turn off to speed up page load by disabling web fonts">Show Web Fonts</label>
+						<label title="Turn off to speed up page load by disabling web fonts">Load Web Fonts</label>
 						<input type="checkbox" name="show_web_fonts" value="on" <?php if($portal_show_web_fonts=="on"){ echo "checked"; } ;?>>
 						<div class="hr"></div>
 						<input type="submit" value="Save" class="floatright"><small><a href="_destroycookies.php">Reset settings</a></small>
