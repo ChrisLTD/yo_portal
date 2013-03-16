@@ -12,6 +12,12 @@ $portal_zip_code = '27713';
 
 $portal_search_string = 'http://www.google.com/search?q=';
 
+$portal_stock_symbols = array(
+     "^GSPC",
+     "AAPL",
+     "GOOG"
+);
+
 $portal_search_autofocus = "off"; // "on" or "off"
 
 $portal_show_news = "on"; // "on" or "off"

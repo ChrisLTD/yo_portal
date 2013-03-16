@@ -30,7 +30,7 @@ $weather->handle_content_type();
 
 
 $markets = new SimplePie();  
-$markets->set_feed_url('http://pipes.yahoo.com/pipes/pipe.run?_id=ZKJobpaj3BGZOew9G8evXg&_render=rss&ticker=%5EGSPC%2CAAPL%2CGOOG');  
+$markets->set_feed_url('http://pipes.yahoo.com/pipes/pipe.run?_id=ZKJobpaj3BGZOew9G8evXg&_render=rss&ticker=' . urlencode(implode($portal_stock_symbols, ",")));  
 $markets->enable_cache(true);  
 $markets->set_cache_duration($portal_cache_duration);  
 $markets->set_cache_location($portal_cache_location);  
@@ -102,51 +102,29 @@ $wootshirt->handle_content_type();
 
 <?php if($markets): ?>	
 		
-	<h2>Markets</h2>
+	<h2>Stocks</h2>
 	
 	<ul class="markets">
 
-	<?  
-		$item = $markets->get_item(0); //Get S&P 500 
+	<? 
+	$marketitems = $markets->get_items();
+	foreach($marketitems as $item) : 
+	?>  
+		<? 
+		$title = $item->get_title();
+		$splittitle = explode(" ", $title);
 		$description = $item->get_description();
 		$splitdescription = explode(" ", $description);
 		$pricechange = $splitdescription[7];
-	?>
-	<li><a href="<?=$item->get_link();?>"><strong>S&amp;P 500</strong> 
-	<? if(strpos($pricechange, "-") === 0) //If the negative sign is the 1st char
-			{ echo '<span class="down">' . $pricechange . '</span>';} 
-		 else{
-				{ echo '<span class="up">' . $pricechange . '</span>';} 
-		 }
-	?></a></li>
-	
-	<?  
-		$item = $markets->get_item(1); //Get Apple
-		$description = $item->get_description();
-		$splitdescription = explode(" ", $description);
-		$pricechange = $splitdescription[7];
-	?>
-	<li><a href="<?=$item->get_link();?>"><strong>Apple</strong> 
-	<? if(strpos($pricechange, "-") === 0) //If the negative sign is the 1st char
-			{ echo '<span class="down">' . $pricechange . '</span>';} 
-		 else{
-				{ echo '<span class="up">' . $pricechange . '</span>';} 
-		 }
-	?></a></li>
-	
-	<?  $item = $markets->get_item(2); //Get NASDAQ 
-		$description = $item->get_description();
-		$splitdescription = explode(" ", $description);
-		$pricechange = $splitdescription[7];
-	?>
-	<li><a href="<?=$item->get_link();?>"><strong>Google</strong> 
-	<? if(strpos($pricechange, "-") === 0) //If the negative sign is the 1st char
-			{ echo '<span class="down">' . $pricechange . '</span>';} 
-		 else{
-				{ echo '<span class="up">' . $pricechange . '</span>';} 
-		 }
-	?></a></li>
-	</ul>
+		?>
+		<li><a href="<?=$item->get_link();?>"><strong><?=$splittitle[0];?></strong> 
+		<? if(strpos($pricechange, "-") === 0) //If the negative sign is the 1st char
+				{ echo '<span class="down">' . $pricechange . '</span>';} 
+			 else{
+					{ echo '<span class="up">' . $pricechange . '</span>';} 
+			 }
+		?></a></li>
+	<? endforeach; ?>
 
 <?php endif; ?>
 
