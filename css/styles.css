@@ -122,7 +122,7 @@ footer .container { padding-top: 1em; padding-bottom: 2em; max-width: 650px; }
 
 .news_on footer .container { max-width: 960px; border-top: 3px solid rgb(194,68,52);  }
 
-.copyright { float: right; z-index: 2; position: relative;  }
+.copyright { float: right; z-index: 2; position: relative; line-height: 32px; }
 
 .settings { position: relative;  }
 
