@@ -48,7 +48,7 @@ $wootshirt->set_cache_location($portal_cache_location);
   if($nyt->init()):
     $nyt->handle_content_type();
     $nytitems = $nyt->get_items();
-    $nytitems = array_slice($nytitems, 0, 10); // limit to 10 results
+    $nytitems = array_slice($nytitems, 0, 12); // limit results
     if( count($nytitems) > 0 ):
  ?>
 <div class="column">
