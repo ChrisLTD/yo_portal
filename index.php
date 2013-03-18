@@ -1,4 +1,7 @@
 <?php
+// Yo Portal 
+// By Chris Johnson http://chrisltd.com | https://github.com/ChrisLTD/yo_portal
+
 require('_config.php');
 
 // Load settings from cookies
@@ -101,7 +104,7 @@ if(isset($_COOKIE['show_web_fonts'])){
     <footer>
       <div class="container">
 
-        <div class="copyright">Developed by <a href="http://chrisltd.com">Chris Johnson</a></div>
+        <div class="copyright">By <a href="http://chrisltd.com">Chris Johnson</a></div>
 
         <div class="settings">
           <a href="#" data-open-toggle data-target=".settings form" data-toggle-type="fade" title="Settings"><img src="img/gear.png" width="32" height="32"> Settings</a>
