@@ -21,16 +21,12 @@ $weather->set_feed_url('http://rss.weather.com/weather/rss/local/' . $portal_zip
 $weather->enable_cache(true);  
 $weather->set_cache_duration($portal_cache_duration);  
 $weather->set_cache_location($portal_cache_location);  
-$weather->init();  
-$weather->handle_content_type();
 
 $markets = new SimplePie();  
 $markets->set_feed_url('http://pipes.yahoo.com/pipes/pipe.run?_id=ZKJobpaj3BGZOew9G8evXg&_render=rss&ticker=' . urlencode(implode($portal_stock_symbols, ",")));  
 $markets->enable_cache(true);  
 $markets->set_cache_duration($portal_cache_duration);  
 $markets->set_cache_location($portal_cache_location);  
-$markets->init();  
-$markets->handle_content_type();  
 
 $woot = new SimplePie();  
 $woot->set_feed_url('http://www.woot.com/salerss.aspx');  
@@ -38,8 +34,6 @@ $woot->set_item_class("SimplePie_Item_Woot");
 $woot->enable_cache(true);  
 $woot->set_cache_duration($portal_cache_duration);  
 $woot->set_cache_location($portal_cache_location);  
-$woot->init();  
-$woot->handle_content_type(); 
   
 $wootshirt = new SimplePie();  
 $wootshirt->set_feed_url('http://shirt.woot.com/salerss.aspx');  
@@ -47,8 +41,6 @@ $wootshirt->set_item_class("SimplePie_Item_Woot");
 $wootshirt->enable_cache(true);  
 $wootshirt->set_cache_duration($portal_cache_duration);  
 $wootshirt->set_cache_location($portal_cache_location);  
-$wootshirt->init();  
-$wootshirt->handle_content_type();  
 
 ?>
 
@@ -80,11 +72,14 @@ $wootshirt->handle_content_type();
 
 <div class="column">
 
-<?php if($weather): ?>
+<?php 
+  if($weather->init()):
+    $weather->handle_content_type();
+?>
 
   <h2>Weather</h2>
   
-  <? 
+<? 
   $item = $weather->get_item(); 
   $title = $item->get_title();
   $description = $item->get_description();
@@ -96,14 +91,18 @@ $wootshirt->handle_content_type();
   
 <?php endif; ?>
 
-<?php if($markets): ?>  
+<?php 
+  if($markets->init()):
+    $markets->handle_content_type();
+    $marketitems = $markets->get_items();
+    if( count($marketitems) > 0 ):
+ ?>
     
   <h2>Stocks</h2>
   
   <ul class="markets">
 
   <? 
-  $marketitems = $markets->get_items();
   foreach($marketitems as $item) : 
   ?>  
     <? 
@@ -122,9 +121,15 @@ $wootshirt->handle_content_type();
     ?></a></li>
   <? endforeach; ?>
 
-<?php endif; ?>
+<?php 
+    endif; 
+  endif; 
+?>
 
-<?php if($woot): ?>   
+<?php 
+  if($woot->init()):
+    $woot->handle_content_type();
+?>   
 
   <h2>Woot</h2>
   
@@ -142,7 +147,11 @@ $wootshirt->handle_content_type();
         if($wootoff=="True"){echo "<strong>Woot Off!</strong> ";};
       ?>
     </li>
-  
+    
+    <?php 
+      if($wootshirt->init()):
+        $wootshirt->handle_content_type();
+    ?>   
     <li>
       <? $item = $wootshirt->get_item(); ?>
       <a href="<?=$item->get_link();?>"><img src="<?=$item->get_standard_src();?>"><br>
@@ -153,9 +162,12 @@ $wootshirt->handle_content_type();
         else{ echo $item->get_price();}
       ?>
     </li>
+
+    <?php endif;  // wootshirt ?>
+
   </ul>
 
-<?php endif; ?>
+<?php endif; // woot ?>
 
 </div><!--/.column-->
 
