@@ -82,11 +82,12 @@ $wootshirt->set_cache_location($portal_cache_location);
 <? 
   $item = $weather->get_item(); 
   $title = $item->get_title();
+  $title = str_replace("Current Weather Conditions In", "Currently in", $title); //Parse odd text from title
   $description = $item->get_description();
-  $reduceddescription = str_replace(". For more details?", "", $description); //Parse odd text from description
+  $description = str_replace(". For more details?", "", $description); //Parse odd text from description
 ?>
   <ul class="weather">
-    <li><a href="<?=$item->get_link();?>"><?=$title;?>:<br><b><?= $reduceddescription;?></b></a></li>
+    <li><a href="<?=$item->get_link();?>"><?=$title;?>:<br><b><?= $description;?></b></a></li>
   </ul>
   
 <?php endif; ?>
