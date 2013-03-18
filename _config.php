@@ -11,7 +11,7 @@ $portal_cache_duration = 1800;
 
 $portal_zip_code = '27713';
 
-$portal_search_string = 'http://www.google.com/search?q=';
+$portal_search_string = 'http://www.google.com/search';
 
 $portal_stock_symbols = array(
   "^GSPC",
