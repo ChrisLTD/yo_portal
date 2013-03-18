@@ -14,9 +14,69 @@ $portal_zip_code = '27713';
 $portal_search_string = 'http://www.google.com/search?q=';
 
 $portal_stock_symbols = array(
-     "^GSPC",
-     "AAPL",
-     "GOOG"
+  "^GSPC",
+  "AAPL",
+  "GOOG"
+);
+
+$portal_links = array(
+  "MSNBC" => array(
+    "url" => "http://www.msnbc.com",
+    "description" => "News"),
+  "ESPN" => array(
+    "url" => "http://www.espn.com",
+    "description" => "Sports"),
+  "Reddit" => array(
+    "url" => "http://reddit.com",
+    "description" => "Waste your day"),
+  "Hacker News" => array(
+    "url" => "http://news.ycombinator.com",
+    "description" => "Nerd news"),
+  "Kottke" => array(
+    "url" => "http://kottke.org",
+    "description" => "Interesting links"),
+  "DOD Tracker" => array(
+    "url" => "http://www.dodtracker.com",
+    "description" => "Daily deals"),
+  "Devour" => array(
+    "url" => "http://devour.com",
+    "description" => "Awesome videos"),
+  "Instant Watcher" => array(
+    "url" => "http://instantwatcher.com",
+    "description" => "New on Netflix")
+);
+
+$portal_apps = array(
+  "GMail" =>  array(
+    "url" => "http://www.gmail.com",
+    "description" => "E-mail"),
+  "My Yahoo" =>  array(
+    "url" => "http://my.yahoo.com",
+    "description" => "Portal"),
+  "Google Calendar "=>  array(
+    "url" => "http://www.google.com/calendar",
+    "description" => "Plan ahead"),
+  "Google Maps" =>  array(
+    "url" => "http://www.google.com/maps",
+    "description" => "Find stuff"),
+  "Google Drive" => array(
+    "url" => "http://drive.google.com/",
+    "description" => "Online Office&trade;"),
+  "Facebook" =>  array(
+    "url" => "http://www.facebook.com",
+    "description" => "Social network"),
+  "Twitter" =>  array(
+    "url" => "http://www.twitter.com",
+    "description" => "Social blurbs"),
+  "Flickr" => array(
+    "url" => "http://www.flickr.com",
+    "description" => "Photos"),
+  "YouTube" => array(
+    "url" => "http://www.youtube.com",
+    "description" => "Videos"),
+  "Picmonkey" => array(
+    "url" => "http://www.picmonkey.com/",
+    "description" => "Image Editor")
 );
 
 $portal_search_autofocus = "off"; // "on" or "off"
