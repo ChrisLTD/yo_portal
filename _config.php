@@ -14,9 +14,9 @@ $portal_zip_code = '27713';
 $portal_search_string = 'http://www.google.com/search';
 
 $portal_stock_symbols = array(
-  "^GSPC",
-  "AAPL",
-  "GOOG"
+  "^GSPC" => "S&P 500",
+  "AAPL" => "Apple",
+  "GOOG" => "Google"
 );
 
 $portal_links = array(

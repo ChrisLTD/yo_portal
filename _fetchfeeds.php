@@ -23,7 +23,7 @@ $weather->set_cache_duration($portal_cache_duration);
 $weather->set_cache_location($portal_cache_location);  
 
 $markets = new SimplePie();  
-$markets->set_feed_url('http://pipes.yahoo.com/pipes/pipe.run?_id=ZKJobpaj3BGZOew9G8evXg&_render=rss&ticker=' . urlencode(implode($portal_stock_symbols, ",")));  
+$markets->set_feed_url('http://pipes.yahoo.com/pipes/pipe.run?_id=ZKJobpaj3BGZOew9G8evXg&_render=rss&ticker=' . urlencode(implode(array_keys($portal_stock_symbols), ",")));  
 $markets->enable_cache(true);  
 $markets->set_cache_duration($portal_cache_duration);  
 $markets->set_cache_location($portal_cache_location);  
@@ -108,11 +108,13 @@ $wootshirt->set_cache_location($portal_cache_location);
     <? 
     $title = $item->get_title();
     $splittitle = explode(" ", $title);
+    $symbol = $splittitle[0];
+    $name = $portal_stock_symbols[$symbol]; // Get proper name from settings array
     $description = $item->get_description();
     $splitdescription = explode(" ", $description);
     $pricechange = $splitdescription[7];
     ?>
-    <li><a href="<?=$item->get_link();?>"><strong><?=$splittitle[0];?></strong> 
+    <li><a href="<?=$item->get_link();?>"><strong title="<?=$symbol;?>"><?=$name;?></strong> 
     <? if(strpos($pricechange, "-") === 0) //If the negative sign is the 1st char
         { echo '<span class="down">' . $pricechange . '</span>';} 
        else{
