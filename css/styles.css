@@ -109,9 +109,11 @@ header, [role="main"], footer { text-align: center; padding: 0 8px; }
 
 .weather img { background: #fff; border-radius: 6em; vertical-align: bottom; margin-right: 3px; }
 
-.up { color: #299936; }
+.alert, .up, .down { color: rgb(231,231,231); display: inline-block; background: #D5B233; line-height: 1; padding: 0px 4px 3px; border-radius: 2px; font-size: 80%; font-weight: bold; vertical-align: 2px; }
 
-.down { color: #992954; }
+.up { background: #299936; }
+
+.down { background: #992954; }
 
 .woot img { border-radius: 3px; }
 

@@ -113,9 +113,10 @@ $wootshirt->set_cache_location($portal_cache_location);
     $name = $portal_stock_symbols[$symbol]; // Get proper name from settings array
     $description = $item->get_description();
     $splitdescription = explode(" ", $description);
+    $price = $splitdescription[1];
     $pricechange = $splitdescription[7];
     ?>
-    <li><a href="<?=$item->get_link();?>"><strong title="<?=$symbol;?>"><?=$name;?></strong> 
+    <li><a href="<?=$item->get_link();?>"><strong title="<?=$symbol;?>"><?=$name;?></strong> <?=$price;?>   
     <? if(strpos($pricechange, "-") === 0) //If the negative sign is the 1st char
         { echo '<span class="down">' . $pricechange . '</span>';} 
        else{
@@ -140,14 +141,15 @@ $wootshirt->set_cache_location($portal_cache_location);
     <li>
       <? $item = $woot->get_item(); ?>
       <a href="<?=$item->get_link();?>"><img src="<?=$item->get_standard_src();?>"><br>
+      <?php
+	      $wootoff = strtolower($item->get_wootoff_status());
+        if($wootoff=="true"){echo '<strong class="alert">Woot Off!</strong>';};
+      ?>
       <b><?=$item->get_title();?></b></a>
       <?
-        $soldout = $item->get_soldout_status();
-        if($soldout=="True"){echo "<em>Sold Out</em> ";}
+        $soldout = strtolower($item->get_soldout_status());
+        if($soldout=="true"){echo "<em>Sold Out</em> ";}
         else{ echo $item->get_price();}
-      
-        $wootoff = $item->get_wootoff_status();
-        if($wootoff=="True"){echo "<strong>Woot Off!</strong> ";};
       ?>
     </li>
     
