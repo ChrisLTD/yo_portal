@@ -105,6 +105,8 @@ header, [role="main"], footer { text-align: center; padding: 0 8px; }
 
 .column ul li { margin-bottom: 1em; } 
 
+.column table tr td { padding: .5em .5em .5em 0; }
+
 .news a:visited { color: #666; }
 
 .weather img { background: #fff; border-radius: 6em; vertical-align: bottom; margin-right: 3px; }

@@ -101,7 +101,7 @@ $wootshirt->set_cache_location($portal_cache_location);
     
   <h2>Stocks</h2>
   
-  <ul class="markets">
+  <table class="markets">
 
   <? 
   foreach($marketitems as $item) : 
@@ -116,14 +116,20 @@ $wootshirt->set_cache_location($portal_cache_location);
     $price = $splitdescription[1];
     $pricechange = $splitdescription[7];
     ?>
-    <li><a href="<?=$item->get_link();?>"><strong title="<?=$symbol;?>"><?=$name;?></strong> <?=$price;?>   
-    <? if(strpos($pricechange, "-") === 0) //If the negative sign is the 1st char
-        { echo '<span class="down">' . $pricechange . '</span>';} 
-       else{
-          { echo '<span class="up">' . $pricechange . '</span>';} 
-       }
-    ?></a></li>
+		<tr>
+			<td><a href="<?=$item->get_link();?>"><strong title="<?=$symbol;?>"><?=$name;?></strong></a></td>
+			<td><?=$price;?></td>
+			<td>
+			<? if(strpos($pricechange, "-") === 0) //If the negative sign is the 1st char
+					{ echo '<span class="down">' . $pricechange . '</span>';} 
+				 else{
+						{ echo '<span class="up">' . $pricechange . '</span>';} 
+				 }
+			?>
+			</td>
+		</tr>
   <? endforeach; ?>
+  </table>
 
 <?php 
     endif; 
