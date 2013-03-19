@@ -21,13 +21,18 @@ class SimplePie_Item_Woot extends SimplePie_Item
 		return $data[0]['data'];
 	}
 
-	 function get_soldout_status() 
+	function get_soldout_status() 
 	{
 		$data = $this->get_item_tags(SIMPLE_NAMESPACE_WOOT, 'soldout');
 		return $data[0]['data'];
 	}
 	
-
+	function get_soldout_percentage() 
+	{
+		$data = $this->get_item_tags(SIMPLE_NAMESPACE_WOOT, 'soldoutpercentage');
+		return $data[0]['data'];
+	}
+	
 	function get_price() 
 	{
 		$data = $this->get_item_tags(SIMPLE_NAMESPACE_WOOT, 'price');
