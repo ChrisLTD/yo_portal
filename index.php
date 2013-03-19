@@ -109,21 +109,31 @@ if(isset($_COOKIE['show_web_fonts'])){
         <div class="settings">
           <a href="#" data-open-toggle data-target=".settings form" data-toggle-type="fade" title="Settings"><img src="img/gear.png" width="32" height="32"> Settings</a>
           <form action="_setcookies.php" method="GET" class="arrow_box">
-            <label title="Put in your ZIP code to get personalized weather">ZIP Code</label>
-            <input type="text" name="zip" size="40" value="<?=$portal_zip_code;?>">
+            <label title="Put in your ZIP code to get personalized weather" for="settings_zip">ZIP Code</label>
+            <input type="text" name="zip" id="settings_zip" size="40" value="<?=$portal_zip_code;?>">
+            
+          	<div class="hr"></div>
+          	
+            <label title="Use this to change the search engine" for="settings_search_string">Search String</label>
+            <input type="url" name="search_string" id="settings_search_string" size="40" value="<?=$portal_search_string;?>" pattern="https?://.+">
+            
             <div class="hr"></div>
-            <label title="Use this to change the search engine">Search String</label>
-            <input type="url" name="search_string" size="40" value="<?=$portal_search_string;?>" pattern="https?://.+">
+            
+            <label title="Should the cursor enter the search box when the page loads?" for="settings_search_autofocus">Search Autofocus</label>
+            <input type="checkbox" name="search_autofocus" id="settings_search_autofocus" value="on" <?php if($portal_search_autofocus=="on"){ echo "checked"; } ;?>>
+            
             <div class="hr"></div>
-            <label title="Should the cursor enter the search box when the page loads?">Search Autofocus</label>
-            <input type="checkbox" name="search_autofocus" value="on" <?php if($portal_search_autofocus=="on"){ echo "checked"; } ;?>>
+            
+            <label title="Turn off to only show search box" for="settings_show_news">Load News & Links</label>
+            <input type="checkbox" name="show_news" id="settings_show_news" value="on" <?php if($portal_show_news=="on"){ echo "checked"; } ;?>>
+            
             <div class="hr"></div>
-            <label title="Turn off to only show search box">Load News & Links</label>
-            <input type="checkbox" name="show_news" value="on" <?php if($portal_show_news=="on"){ echo "checked"; } ;?>>
+            
+            <label title="Turn off to speed up page load by disabling web fonts" for="settings_show_web_fonts">Load Web Fonts</label>
+            <input type="checkbox" name="show_web_fonts" id="settings_show_web_fonts" value="on" <?php if($portal_show_web_fonts=="on"){ echo "checked"; } ;?>>
+            
             <div class="hr"></div>
-            <label title="Turn off to speed up page load by disabling web fonts">Load Web Fonts</label>
-            <input type="checkbox" name="show_web_fonts" value="on" <?php if($portal_show_web_fonts=="on"){ echo "checked"; } ;?>>
-            <div class="hr"></div>
+            
             <input type="submit" value="Save" class="floatright"><small><a href="_destroycookies.php">Reset settings</a></small>
             <a href="#" class="close" data-open-toggle data-target=".settings form" data-toggle-type="fade" title="Close">&times;</a>
           </form>
