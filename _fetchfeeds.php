@@ -156,7 +156,7 @@ $wootshirt->set_cache_location($portal_cache_location);
         $soldout = strtolower($item->get_soldout_status());
         if($soldout=="true"): ?>
         	<em>Sold Out</em>
-        <?php else: ?>
+        <?php elseif($wootoff=="true"): ?>
         <?=$item->get_price();?> <span class="info"><?=(1-$item->get_soldout_percentage()) * 100;?>% left</span>
 			<?php endif; ?>
     </li>
