@@ -48,8 +48,8 @@ if(isset($_COOKIE['show_web_fonts'])){
   ?>
   
 
-<link rel="stylesheet" href="css/normalize.css">  
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/normalize.css?v=<?php echo $portal_assets_version; ?>">  
+<link rel="stylesheet" href="css/styles.css?v=<?php echo $portal_assets_version; ?>">
 
   <?=$portal_tracking_code;?>
 
@@ -148,54 +148,19 @@ if(isset($_COOKIE['show_web_fonts'])){
   <script>
   if ('__proto__' in {}) {
     // IS NOT IE
-    document.write('<script src="js/zepto.min.js"><\/script>');
-    document.write('<script src="js/zepto.fx_methods.js"><\/script>');
+    document.write('<script src="js/zepto.min.js?v=<?php echo $portal_assets_version; ?>"><\/script>');
+    document.write('<script src="js/zepto.fx_methods.js?v=<?php echo $portal_assets_version; ?>"><\/script>');
   } else {
     // IS IE
-    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"><\/script>');
+    document.write('<script src="js/jquery.min.js?v=<?php echo $portal_assets_version; ?>"><\/script>');
   }
   </script>
   
-  <script>
-  $(function(){
-  
-  <?php 
-  if($portal_show_news != "off"):
-  ?>
-  
-  // Call in the feeds
-  $.ajax({
-    url: "_fetchfeeds.php?zip=<?=urlencode($portal_zip_code);?>",
-    cache: false,
-    success: function(html){
-      $('[role="main"] > .container').prepend( html );
-      $('[role="main"]').fadeIn();
-    }
-  });
-  
+  <?php if($portal_show_news != "off"): ?>
+  <script src="js/fetchfeeds.js?v=<?php echo $portal_assets_version; ?>"></script>
   <?php endif; ?>
   
-  // Open and close toggle
-  $("[data-open-toggle]").click(function(event) {
-    event.preventDefault();
-    toggleTarget = $(this).data('target');
-    toggleType = $(this).data('toggle-type');
-    $(this).toggleClass("toggled");
-    switch(toggleType){
-      case "slide":
-        $(toggleTarget).slideToggle('fast');
-        break;
-      case "fade":
-        $(toggleTarget).fadeToggle('fast');
-        break;
-      default:
-        $(toggleTarget).toggle();
-    }
-  });
+	<script src="js/script.js?v=<?php echo $portal_assets_version; ?>"></script>
   
-  
-  });
-  </script>
-
 </body>
 </html>
