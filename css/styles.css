@@ -111,7 +111,7 @@ header, [role="main"], footer { text-align: center; padding: 0 8px; }
 
 .weather img { background: #fff; border-radius: 6em; vertical-align: bottom; margin-right: 3px; }
 
-.alert, .up, .down, .info { color: rgb(231,231,231); display: inline-block; background: #D5B233; line-height: 1; padding: 0px 4px 3px; border-radius: 2px; font-size: 80%; font-weight: bold; vertical-align: 2px; }
+.alert, .up, .down, .info { color: rgb(231,231,231); display: inline-block; background: #D5B233; line-height: 1.5; padding: 0 4px; border-radius: 2px; font-size: 80%; font-weight: bold; vertical-align: 2px; }
 
 .up { background: #299936; }
 
