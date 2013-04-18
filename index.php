@@ -157,6 +157,7 @@ if(isset($_COOKIE['show_web_fonts'])){
   </script>
   
   <?php if($portal_show_news != "off"): ?>
+  <script src="forecastio/skycons.js?v=<?php echo $portal_assets_version; ?>"></script>
   <script src="js/fetchfeeds.js?v=<?php echo $portal_assets_version; ?>"></script>
   <?php endif; ?>
   

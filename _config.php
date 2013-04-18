@@ -3,7 +3,7 @@
 error_reporting(0); // 0 = off, -1 = on
 // If you turn error reporting on, you will get an include error if you don't have a _local_config.php file, you can supress this with a blank file
 
-$portal_assets_version = "2"; // used to cache bust css and js files
+$portal_assets_version = "4"; // used to cache bust css and js files
 
 $portal_site_title = "My P<b>o</b>rtal";
 
@@ -11,7 +11,11 @@ $portal_cache_location = '/your/absolute/server/path/here'; // Absolute url to w
 
 $portal_cache_duration = 1800;
 
-$portal_zip_code = '27713';
+$portal_forecastio_api_key = '<your_api_key>'; // Forecast.io weather API key from https://developer.forecast.io
+
+$portal_latitude = '35.9940';
+
+$portal_longitude = '-78.8986';
 
 $portal_search_string = 'http://www.google.com/search';
 

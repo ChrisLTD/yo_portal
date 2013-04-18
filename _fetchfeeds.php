@@ -3,6 +3,8 @@
 require_once('_config.php');
 require_once('simplepie/autoloader.php'); // Include SimplePie RSS parser
 require_once('simplepie/simplepie_woot.inc'); //Include Woot item class
+require_once('forecastio/forecast.io.php');
+
 
 if(isset($_GET["zip"])){
   $portal_zip_code = $_GET["zip"];
@@ -15,12 +17,6 @@ $nyt->set_feed_url('http://feeds.nytimes.com/nyt/rss/HomePage');
 $nyt->enable_cache(true);  
 $nyt->set_cache_duration($portal_cache_duration);  
 $nyt->set_cache_location($portal_cache_location);  
-
-$weather = new SimplePie();  
-$weather->set_feed_url('http://rss.weather.com/weather/rss/local/' . $portal_zip_code . '?cm_ven=LWO&cm_cat=rss&par=LWO_rss');  
-$weather->enable_cache(true);  
-$weather->set_cache_duration($portal_cache_duration);  
-$weather->set_cache_location($portal_cache_location);  
 
 $markets = new SimplePie();  
 $markets->set_feed_url('http://pipes.yahoo.com/pipes/pipe.run?_id=ZKJobpaj3BGZOew9G8evXg&_render=rss&ticker=' . urlencode(implode(array_keys($portal_stock_symbols), ",")));  
@@ -73,21 +69,18 @@ $wootshirt->set_cache_location($portal_cache_location);
 <div class="column">
 
 <?php 
-  if($weather->init()):
-    $weather->handle_content_type();
+	$forecast = new ForecastIO($portal_forecastio_api_key);	
+	
+	if($condition = $forecast->getCurrentConditions($portal_latitude, $portal_longitude)):
 ?>
 
   <h2>Weather</h2>
   
-<? 
-  $item = $weather->get_item(); 
-  $title = $item->get_title();
-  $title = str_replace("Current Weather Conditions In", "Currently in", $title); //Parse odd text from title
-  $description = $item->get_description();
-  $description = str_replace(". For more details?", "", $description); //Parse odd text from description
-?>
   <ul class="weather">
-    <li><a href="<?=$item->get_link();?>"><?=$title;?>:<br><b><?= $description;?></b></a></li>
+    <li>
+    	<canvas id="weather_icon" width="64" height="64" data-weather-state="<?php echo strtoupper($condition->getIcon());?>"></canvas>
+    	Currently <b><?php echo round($condition->getTemperature()); ?>&deg;</b> and <?php echo $condition->getSummary(); ?>
+    </li>
   </ul>
   
 <?php endif; ?>

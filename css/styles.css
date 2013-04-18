@@ -69,7 +69,7 @@ h2, h2 a { color: rgb(231,231,231);  }
 
 h2 a:hover { color: rgb(231,231,231); text-decoration: underline; }
 
-h2 { text-transform: uppercase; letter-spacing: 1px; font-size: 1em; padding: .6em .9em; background: rgb(194,68,52); border-radius: 3px; text-shadow: 1px 1px 1px rgba(0,0,0,.2); }
+h2 { text-transform: uppercase; letter-spacing: 1px; font-size: 1em; padding: .6em .9em; background: rgb(194,68,52); border-radius: 3px; text-shadow: 1px 1px 1px rgba(0,0,0,.2); clear: both; }
 
 h2 em { font-size: 70%; font-style: normal; }
 
@@ -109,7 +109,7 @@ header, [role="main"], footer { text-align: center; padding: 0 8px; }
 
 .news a:visited { color: #666; }
 
-.weather img { background: #fff; border-radius: 6em; vertical-align: bottom; margin-right: 3px; }
+.weather canvas { float: right; margin-left: 8px; margin-bottom: 8px; }
 
 .alert, .up, .down, .info { color: rgb(231,231,231); display: inline-block; background: #D5B233; line-height: 1.5; padding: 0 4px; border-radius: 2px; font-size: 80%; font-weight: bold; vertical-align: 2px; }
 
