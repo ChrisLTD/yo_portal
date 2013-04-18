@@ -17,6 +17,8 @@ $portal_latitude = '35.9940';
 
 $portal_longitude = '-78.8986';
 
+$portal_geonames_username = '<yourusername>'; // Username for Geonames account http://www.geonames.org
+
 $portal_search_string = 'http://www.google.com/search';
 
 $portal_stock_symbols = array(

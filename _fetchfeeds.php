@@ -46,6 +46,17 @@ $wootshirt->enable_cache(true);
 $wootshirt->set_cache_duration($portal_cache_duration);  
 $wootshirt->set_cache_location($portal_cache_location);  
 
+function getLocationName($latitude, $longitude, $username){
+	$request_url = 'http://api.geonames.org/findNearbyPlaceNameJSON?lat=' . $latitude . '&lng=' . $longitude . '&username=' . $username;
+	$content = file_get_contents($request_url);
+	if ($content != '' && isset($content)) {
+		$location_object = json_decode($content);
+		return $location_object->geonames[0]->name;
+	} else {
+		return false;		
+	}
+}
+
 ?>
 
 <?php 
@@ -78,7 +89,7 @@ $wootshirt->set_cache_location($portal_cache_location);
 
 <?php 
 	$cachefile = $portal_cache_location . "/weather" . $portal_latitude . $portal_longitude;
-	$cachetime = 15 * 60; // 15 minutes
+	$cachetime = 20 * 60; // 20 minutes
 	
 	// Serve from the cache if it is younger than $cachetime
 	if (file_exists($cachefile) && (time() - $cachetime < filemtime($cachefile))) {
@@ -97,7 +108,15 @@ $wootshirt->set_cache_location($portal_cache_location);
   <ul class="weather">
     <li>
     	<canvas id="weather_icon" width="50" height="50" data-weather-state="<?php echo strtoupper($condition->getIcon());?>"></canvas>
-    	Currently <b><?php echo round($condition->getTemperature()); ?>&deg;<br><?php echo $condition->getSummary(); ?></b>
+    	<?php
+    		$locationName = getLocationName($portal_latitude, $portal_longitude, $portal_geonames_username);
+    		if($locationName){
+    			echo $locationName;
+    		} else {
+    			echo 'Currently';
+    		}
+    	?>
+    	<br><b><?php echo round($condition->getTemperature()); ?>&deg;</b> and <b><?php echo $condition->getSummary(); ?></b>
     </li>
   </ul>
   

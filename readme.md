@@ -21,6 +21,7 @@ The page is personalizable for invididual users and browsers through a settings 
 2. Setup a cache folder on your server. [Read these instructions for making your cache folder writable](http://simplepie.org/wiki/faq/file_permissions).
 3. Put the absolute server path to the cache folder in the `$portal_cache_location` variable in the `_config.php` file.
 4. Create a (Forecast.io API account](https://developer.forecast.io) and set your `$portal_forecastio_api_key` with your API key in the `_config.php` file.
+4. Create a (GeoNames account)[http://www.geonames.org/login], enable it for web services, and put your username in the `$portal_geonames_username` variable in `_config.php` file.
 5. Enjoy and be sure to check the _config.php file for other settings you can change.
 
 ## Included Libraries
