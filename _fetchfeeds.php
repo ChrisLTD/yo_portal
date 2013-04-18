@@ -10,6 +10,14 @@ if(isset($_GET["zip"])){
   $portal_zip_code = $_GET["zip"];
 }
 
+if(isset($_COOKIE['latitude'])){
+  $portal_latitude = $_COOKIE['latitude'];
+}
+
+if(isset($_COOKIE['longitude'])){
+  $portal_longitude = $_COOKIE['longitude'];
+}
+
 // Setup RSS Feeds
 
 $nyt = new SimplePie();  
@@ -78,8 +86,8 @@ $wootshirt->set_cache_location($portal_cache_location);
   
   <ul class="weather">
     <li>
-    	<canvas id="weather_icon" width="64" height="64" data-weather-state="<?php echo strtoupper($condition->getIcon());?>"></canvas>
-    	Currently <b><?php echo round($condition->getTemperature()); ?>&deg;</b> and <?php echo $condition->getSummary(); ?>
+    	<canvas id="weather_icon" width="50" height="50" data-weather-state="<?php echo strtoupper($condition->getIcon());?>"></canvas>
+    	Currently <b><?php echo round($condition->getTemperature()); ?>&deg;<br><?php echo $condition->getSummary(); ?></b>
     </li>
   </ul>
   

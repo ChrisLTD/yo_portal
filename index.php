@@ -5,9 +5,6 @@
 require('_config.php');
 
 // Load settings from cookies
-if(isset($_COOKIE['zip'])){
-  $portal_zip_code = $_COOKIE['zip'];
-}
 
 if(isset($_COOKIE['search_string'])){
   $portal_search_string = $_COOKIE['search_string'];
@@ -23,6 +20,14 @@ if(isset($_COOKIE['show_news'])){
 
 if(isset($_COOKIE['show_web_fonts'])){
   $portal_show_web_fonts = $_COOKIE['show_web_fonts'];
+}
+
+if(isset($_COOKIE['latitude'])){
+  $portal_latitude = $_COOKIE['latitude'];
+}
+
+if(isset($_COOKIE['longitude'])){
+  $portal_longitude = $_COOKIE['longitude'];
 }
   
 ?><!doctype html>  
@@ -109,8 +114,20 @@ if(isset($_COOKIE['show_web_fonts'])){
         <div class="settings">
           <a href="#" data-open-toggle data-target=".settings form" data-toggle-type="fade" title="Settings"><img src="img/gear.png" width="32" height="32"> Settings</a>
           <form action="_setcookies.php" method="GET" class="arrow_box">
-            <label title="Put in your ZIP code to get personalized weather" for="settings_zip">ZIP Code</label>
-            <input type="text" name="zip" id="settings_zip" size="40" value="<?=$portal_zip_code;?>">
+          	
+          	<label>Weather</label>
+          	
+          	<a href="#" id="get_current_location"><img src="img/compass.png" width="16" height="16"> Get Current Location</a>
+          	
+          	<br><br>
+          	         	
+            <label title="Put in your latitude for personalized weather" for="settings_latitude">Latitude</label>
+            <input type="text" name="latitude" id="settings_latitude" size="40" value="<?=$portal_latitude;?>">
+            
+            <br><br>
+            
+            <label title="Put in your longitude for personalized weather" for="settings_longitude">Longitude</label>
+            <input type="text" name="longitude" id="settings_longitude" size="40" value="<?=$portal_longitude;?>">
             
           	<div class="hr"></div>
           	

@@ -109,7 +109,7 @@ header, [role="main"], footer { text-align: center; padding: 0 8px; }
 
 .news a:visited { color: #666; }
 
-.weather canvas { float: right; margin-left: 8px; margin-bottom: 8px; }
+.weather canvas { float: right; margin-left: 8px; margin-bottom: 8px; margin-right: 3px; }
 
 .alert, .up, .down, .info { color: rgb(231,231,231); display: inline-block; background: #D5B233; line-height: 1.5; padding: 0 4px; border-radius: 2px; font-size: 80%; font-weight: bold; vertical-align: 2px; }
 
@@ -140,7 +140,7 @@ footer .container { padding-top: 1em; padding-bottom: 2em; max-width: 650px; }
 
 .settings form { display: none; position: relative; padding: 1em; color: rgb(231,231,231); border-radius: .75em; box-shadow: 1px 1px 4px rgba(0,0,0,.3); background: rgb(41,44,53); border: 3px solid  rgb(194,68,52); margin-top: 10px; }
 
-.settings form a { color: rgb(194,68,52); }
+.settings form a { color: #ee563a; }
 
 .settings label { width: 35%; display: inline-block; }
 
@@ -149,6 +149,8 @@ footer .container { padding-top: 1em; padding-bottom: 2em; max-width: 650px; }
 .settings [type="submit"] { text-transform: uppercase; }
 
 .settings .close { position: absolute; top: -10px; right: -10px; background: rgb(231,231,231); line-height: 1; padding: 0px 7px 4px; border-radius: 6em; font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size: 22px; font-weight: bold; border: 3px solid rgb(194,68,52); color: rgb(41,44,53); }
+
+#get_current_location img { margin-left: 3px; vertical-align: -3px; }
 
 
 /* MEDIA QUERIES

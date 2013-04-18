@@ -1,7 +1,11 @@
 <?php
 
-if(isset($_GET["zip"])){
-	setcookie('zip', $_GET["zip"], time()+(60*60*24*365));
+if(isset($_GET["latitude"])){
+	setcookie('latitude', $_GET["latitude"], time()+(60*60*24*365));
+}
+
+if(isset($_GET["longitude"])){
+	setcookie('longitude', $_GET["longitude"], time()+(60*60*24*365));
 }
 
 if(isset($_GET["search_string"])){

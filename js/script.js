@@ -18,4 +18,24 @@ $(function(){
     }
   });
   
+  // Geolocation
+  function geoerror(msg) {
+		alert("Location services not available.");
+	}
+	
+	function setLatLong(position) {
+		$("#settings_latitude").val(position.coords.latitude.toFixed(4));
+		$("#settings_longitude").val(position.coords.longitude.toFixed(4));
+	}
+  
+  $("#get_current_location").click(function(event) {
+		event.preventDefault();	
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(setLatLong, geoerror);
+		} else {
+			alert("Location services not available.");
+		}		
+	});
+
+  
 });

@@ -10,6 +10,7 @@ $(function(){
       // Create weather icon
 			var skycons = new Skycons({"color": "rgb(41,44,53)"});
 			var weather_state = $("#weather_icon").data('weather-state');
+			weather_state = weather_state.replace(/-/g, '_');
 			skycons_object = 'Skycons.' + weather_state;
 			skycons.add("weather_icon", eval(skycons_object));
 			skycons.play();
