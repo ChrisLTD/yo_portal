@@ -80,7 +80,6 @@ $wootshirt->set_cache_location($portal_cache_location);
 	$cachefile = $portal_cache_location . "/weather" . $portal_latitude . $portal_longitude;
 	$cachetime = 15 * 60; // 15 minutes
 	
-	
 	// Serve from the cache if it is younger than $cachetime
 	if (file_exists($cachefile) && (time() - $cachetime < filemtime($cachefile))) {
 		include($cachefile);
@@ -91,7 +90,6 @@ $wootshirt->set_cache_location($portal_cache_location);
 		$forecast = new ForecastIO($portal_forecastio_api_key);	
 	
 		if($condition = $forecast->getCurrentConditions($portal_latitude, $portal_longitude)):
-	
 ?>
 
   <h2>Weather</h2>
@@ -103,7 +101,8 @@ $wootshirt->set_cache_location($portal_cache_location);
     </li>
   </ul>
   
-<?php endif; 
+<?php 
+		endif; 
 
 		$fp = fopen($cachefile, 'w'); // open the cache file for writing
 		fwrite($fp, ob_get_contents()); // save the contents of output buffer to the file
@@ -111,8 +110,7 @@ $wootshirt->set_cache_location($portal_cache_location);
 
 		ob_end_flush(); // Send the output to the browser
 
-	}
-	
+	} // end else
 ?>
 
 <?php 
