@@ -28,3 +28,4 @@ The page is personalizable for invididual users and browsers through a settings 
 * [Zepto](http://zeptojs.com) - Lightweight JQuery alternative for modern browsers
 * [JQuery](http://jquery.com) - Fallback for older browsers
 * [Forecast.io PHP wrapper](https://github.com/tobias-redmann/forecast.io-php-api) - For weather data
+* [Skycons](http://darkskyapp.github.io/skycons/) - Animated icons for weather

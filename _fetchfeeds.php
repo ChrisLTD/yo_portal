@@ -77,9 +77,21 @@ $wootshirt->set_cache_location($portal_cache_location);
 <div class="column">
 
 <?php 
-	$forecast = new ForecastIO($portal_forecastio_api_key);	
+	$cachefile = $portal_cache_location . "/weather" . $portal_latitude . $portal_longitude;
+	$cachetime = 15 * 60; // 15 minutes
 	
-	if($condition = $forecast->getCurrentConditions($portal_latitude, $portal_longitude)):
+	
+	// Serve from the cache if it is younger than $cachetime
+	if (file_exists($cachefile) && (time() - $cachetime < filemtime($cachefile))) {
+		include($cachefile);
+		echo "<!-- Cached ".date('jS F Y H:i', filemtime($cachefile))." -->";
+	} else {
+		ob_start(); // start the output buffer
+	
+		$forecast = new ForecastIO($portal_forecastio_api_key);	
+	
+		if($condition = $forecast->getCurrentConditions($portal_latitude, $portal_longitude)):
+	
 ?>
 
   <h2>Weather</h2>
@@ -91,7 +103,17 @@ $wootshirt->set_cache_location($portal_cache_location);
     </li>
   </ul>
   
-<?php endif; ?>
+<?php endif; 
+
+		$fp = fopen($cachefile, 'w'); // open the cache file for writing
+		fwrite($fp, ob_get_contents()); // save the contents of output buffer to the file
+		fclose($fp); // close the file
+
+		ob_end_flush(); // Send the output to the browser
+
+	}
+	
+?>
 
 <?php 
   if($markets->init()):
