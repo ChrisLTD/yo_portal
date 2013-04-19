@@ -3,7 +3,7 @@
 error_reporting(0); // 0 = off, -1 = on
 // If you turn error reporting on, you will get an include error if you don't have a _local_config.php file, you can supress this with a blank file
 
-$portal_assets_version = "4"; // used to cache bust css and js files
+$portal_assets_version = "5"; // used to cache bust css and js files
 
 $portal_site_title = "My P<b>o</b>rtal";
 

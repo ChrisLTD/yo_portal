@@ -107,7 +107,7 @@ function getLocationName($latitude, $longitude, $username){
   
   <ul class="weather">
     <li>
-    	<canvas id="weather_icon" width="50" height="50" data-weather-state="<?php echo strtoupper($condition->getIcon());?>"></canvas>
+    	<canvas id="weather_icon" width="100" height="100" data-weather-state="<?php echo strtoupper($condition->getIcon());?>"></canvas>
     	<?php
     		$locationName = getLocationName($portal_latitude, $portal_longitude, $portal_geonames_username);
     		if($locationName){
