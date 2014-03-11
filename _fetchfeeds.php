@@ -161,9 +161,9 @@ function getLocationName($latitude, $longitude, $username){
 			<td><?=$price;?></td>
 			<td>
 			<? if(strpos($pricechange, "-") === 0) //If the negative sign is the 1st char
-					{ echo '<span class="down">' . $pricechange . '</span>';} 
+					{ echo '<span class="down">' . round($pricechange, 2) . '</span>';} 
 				 else{
-						{ echo '<span class="up">' . $pricechange . '</span>';} 
+						{ echo '<span class="up">' . round($pricechange, 2) . '</span>';} 
 				 }
 			?>
 			</td>
