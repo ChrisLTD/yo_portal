@@ -49,9 +49,9 @@ $portal_links = array(
   "Devour" => array(
     "url" => "http://devour.com",
     "description" => "Awesome videos"),
-  "Instant Watcher" => array(
-    "url" => "http://instantwatcher.com",
-    "description" => "New on Netflix")
+  "Kotaku" => array(
+    "url" => "http://kotaku.com",
+    "description" => "Gaming news")
 );
 
 $portal_apps = array(
