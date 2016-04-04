@@ -1,5 +1,5 @@
-# Yo Portal 
-### Version .04 | By [Chris Johnson](http://chrisltd.com) | https://github.com/ChrisLTD/yo_portal
+# Yo Portal
+### Version 0.1 | By [Chris Johnson](http://chrisltd.com) | https://github.com/ChrisLTD/yo_portal
 
 Yo Portal is a start page for your web browser that displays RSS feeds for the NY Times, Woot, Weather, and Stock Quotes. It also displays a set of static links you can customize in the config file. The design is fluid and responsive, so it will scale down for phones and tablets.
 
