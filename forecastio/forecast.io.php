@@ -6,7 +6,7 @@
 class ForecastIO{
   
   private $api_key;
-  const API_ENDPOINT = 'https://api.forecast.io/forecast/'; 
+  const API_ENDPOINT = 'https://api.darksky.net/forecast/'; 
   
   
   /**
