@@ -104,7 +104,6 @@ Authors and contributors
 [Michael Shipley]: http://michaelpshipley.com
 [Steve Minutillo]: http://minutillo.com/steve/
 
-
 ### Contributors
 For a complete list of contributors:
 
